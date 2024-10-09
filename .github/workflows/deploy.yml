@@ -16,16 +16,16 @@ jobs:
       # env:  # Environment variables needed for the docker image
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      # MONGODB_CLUSTER_ADDRESS: mongodb-service # same name as the services name when running everything on containers
-      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017 # When using only a runner (e.g. ubuntu-latest) we need to set the address
+      MONGODB_CLUSTER_ADDRESS: mongodb-service # same name as the services name when running everything on containers
+      # MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017 # When using only a runner (e.g. ubuntu-latest) we need to set the address
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: rootpassword
       PORT: 8080
     services:
       mongodb-service:
         image: mongo
-        ports:
-          - 27017:27017
+        # ports:
+        #   - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: rootpassword
